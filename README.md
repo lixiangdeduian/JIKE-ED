@@ -1,12 +1,12 @@
-# React + Vite
+# 基于 React 的 PC 端文章后台管理系统
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+项目介绍：基于 Vite 脚手架搭建 PC 端管理后台系统，实现用户登录、权限控制、文章发布与管理、数据可视化等功能。项目采用模块化开发，集成 Ant Design 组件库提升开发效率，并通过 Redux 实现统一状态管理。
 
-Currently, two official plugins are available:
+技术栈：Vite + npm + scss + antd + React Router
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+项目工作：
+    - 实现用户认证模块。使用手机号 + 验证码登录，使用 Redux 管理用户 Token，结合 localStorage 实现持久化存储，刷新页面后自动恢复用户状态。封装路由鉴权组件，拦截未登录用户访问受限页面，重定向至登录页。
+    - 封装 Axios，实现与后端接口的高效交互，完成数据渲染与状态更新。
+    - 使用 Redux 对文章数据等进行统一状态管理，减少代码量，提高可读性。
+    - 封装 ECharts 图表组件，实现动态数据渲染，支持图表参数可配置化。
+    - 使用 React.lazy 与 Suspense 实现路由组件懒加载，减少首屏加载时间。
