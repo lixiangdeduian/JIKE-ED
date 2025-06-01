@@ -8,7 +8,7 @@ import {
   Upload,
   Space,
   Select,
-  message
+  message,
 } from 'antd'
 import { PlusOutlined } from '@ant-design/icons'
 import { Link, useSearchParams } from 'react-router-dom'
@@ -21,7 +21,7 @@ import { createArticleAPI, getArticleById, updateArticleAPI } from '@/apis/artic
 import { useChannel } from '@/hooks/useChannel'
 
 const { Option } = Select
-
+const { TextArea } = Input
 const Publish = () => {
   // 获取频道列表
   const { channelList } = useChannel()
@@ -81,7 +81,7 @@ const Publish = () => {
   const [form] = Form.useForm()
   useEffect(() => {
     // 1. 通过id获取数据
-    async function getArticleDetail () {
+    async function getArticleDetail() {
       const res = await getArticleById(articleId)
       const data = res.data
       const { cover } = data
@@ -173,11 +173,7 @@ const Publish = () => {
             rules={[{ required: true, message: '请输入文章内容' }]}
           >
             {/* 富文本编辑器 */}
-            <ReactQuill
-              className="publish-quill"
-              theme="snow"
-              placeholder="请输入文章内容"
-            />
+            <TextArea rows={4} />
           </Form.Item>
 
           <Form.Item wrapperCol={{ offset: 4 }}>
